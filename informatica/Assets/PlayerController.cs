@@ -7,9 +7,18 @@ public class PlayerController : MonoBehaviour
 {
     public float movespeed = 1f;
     public float collisionOffset = 0.05f;
+    
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
     public ContactFilter2D movementFilter;
     public SwordAttack swordAttack;
-
+    public TrailRenderer tr;
+   
+    
     Vector2 movementInput;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
@@ -26,6 +35,19 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        if (isDashing)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+    
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -50,7 +72,15 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
         } 
+
+         if (isDashing)
+        {
+            return;
+        }
     }
+
+       
+ 
 
     private bool TryMove(Vector2 direction){
         if(direction != Vector2.zero){
@@ -100,4 +130,17 @@ public class PlayerController : MonoBehaviour
     public void UnlockMovement(){
         canMove = true;
     }
+ private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+ 
 }
