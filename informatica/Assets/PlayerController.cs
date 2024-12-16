@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     
     private bool canDash = true;
-    private bool isDashing;
-    private float dashingPower = 24f;
-    private float dashingTime = 0.2f;
+    private bool isDashing = false;
+    private float dashingPower = 6f;
+    private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
 
     public ContactFilter2D movementFilter;
@@ -42,15 +42,35 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) && canDash )
         {
-            StartCoroutine(Dash());
+            StartCoroutine(Dashleft());
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D) && canDash )
+        {
+            StartCoroutine(Dashright());
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && canDash )
+        {
+            StartCoroutine(Dashup());
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.S) && canDash )
+        {
+            StartCoroutine(Dashdown());
         }
     }
     
     // Update is called once per frame
     private void FixedUpdate()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         if(canMove){
             if(movementInput != Vector2.zero){
                 bool success = TryMove(movementInput);
@@ -73,10 +93,7 @@ public class PlayerController : MonoBehaviour
             }
         } 
 
-         if (isDashing)
-        {
-            return;
-        }
+         
     }
 
        
@@ -130,13 +147,60 @@ public class PlayerController : MonoBehaviour
     public void UnlockMovement(){
         canMove = true;
     }
- private IEnumerator Dash()
+
+    private IEnumerator Dashleft()
     {
         canDash = false;
         isDashing = true;
+        rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        rb.velocity = Vector2.zero;
+        tr.emitting = false;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+
+    private IEnumerator Dashright()
+    {
+        canDash = false;
+        isDashing = true;
+        
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
+        rb.velocity = Vector2.zero;
+        tr.emitting = false;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+
+    private IEnumerator Dashup()
+    {
+        canDash = false;
+        isDashing = true;
+        
+        rb.velocity = new Vector2(0f, transform.localScale.y * dashingPower);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        rb.velocity = Vector2.zero;
+        tr.emitting = false;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+
+    private IEnumerator Dashdown()
+    {
+        canDash = false;
+        isDashing = true;
+        
+        rb.velocity = new Vector2(0f, -transform.localScale.y * dashingPower);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        rb.velocity = Vector2.zero;
         tr.emitting = false;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
