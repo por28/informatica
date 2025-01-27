@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
     public ContactFilter2D movementFilter;
     public SwordAttack swordAttack;
     public TrailRenderer tr;
+    public Transform arrow;
    
     
     Vector2 movementInput;
+    Vector2 mousePos;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     Animator animator;
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (isDashing)
         {
             return;
@@ -86,9 +90,12 @@ public class PlayerController : MonoBehaviour
             } else{
                 animator.SetBool("isMoving", false);
             }
-            if(movementInput.x < 0){
+
+            Vector2 lookDirection = mousePos - rb.position;
+
+            if(lookDirection.x < 0){
                 spriteRenderer.flipX = true;
-            } else if(movementInput.x > 0){
+            } else if(lookDirection.x > 0){
                 spriteRenderer.flipX = false;
             }
         } 
@@ -127,7 +134,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SwordAttack(){
-        LockMovement();
         if(spriteRenderer.flipX == true){
             swordAttack.AttackLeft();
         } else{
