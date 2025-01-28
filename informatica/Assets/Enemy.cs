@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject Player;
+    public float speed;
+    private float distance;
+    public float distanceBetween;
+
     Animator animator;
 
     public float Health{
@@ -38,6 +43,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        distance = Vector2.Distance(transform.position, Player.transform.position);
+
+        if (distance < distanceBetween)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, speed * Time.deltaTime);
+        }
     }
 }
