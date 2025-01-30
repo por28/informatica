@@ -9,13 +9,16 @@ public class ExperienceManager : MonoBehaviour
     [Header("Experience")]
     [SerializeField] AnimationCurve experienceCurve;
 
-    int currentLevel, totalExperience;
-    int previousLevelsExperience, nextLevelsExperience;
+    public int currentLevel, totalExperience = 0;
+    public int previousLevelsExperience, nextLevelsExperience;
+    public GameOverScreen GameOverScreen;
+    [SerializeField] TextMeshProUGUI pointsText;
 
     [Header("Interface")]
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI experienceText;
     [SerializeField] Image experienceFill;
+
 
     void Start()
     {
@@ -28,6 +31,7 @@ public class ExperienceManager : MonoBehaviour
         {
             AddExperience(5);
         }
+        pointsText.text = totalExperience.ToString() + " POINTS";
     }
 
     public void AddExperience(int amount)

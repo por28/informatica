@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     private float distance;
     public float distanceBetween;
+    public float damage = 1;
 
     Animator animator;
 
@@ -20,6 +21,16 @@ public class Enemy : MonoBehaviour
         }
         get{
             return health;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "Player"){
+            PlayerController Player = other.GetComponent<PlayerController>();
+
+            if(Player != null){
+                Player.Health -= damage;
+            }
         }
     }
 

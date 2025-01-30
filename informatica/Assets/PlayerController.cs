@@ -13,11 +13,15 @@ public class PlayerController : MonoBehaviour
     private float dashingPower = 6f;
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
+    public float health = 2;
+    int totalExperience;
 
     public ContactFilter2D movementFilter;
     public SwordAttack swordAttack;
     public TrailRenderer tr;
     public Transform arrow;
+    public GameObject Enemy;
+    public GameObject GameOverScreen;
    
     
     Vector2 movementInput;
@@ -28,10 +32,31 @@ public class PlayerController : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     bool canMove = true;
+    
+    public float Health{
+        set{
+            health = value;
+            if(health <= 0){
+                GameOver();
+            }
+        }
+        get{
+            return health;
+        }
+    }
+
+    public void GameOver()
+    {
+        GameOverScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
