@@ -6015,7 +6015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5479969705376892149, guid: b63e4b3f7b87477429bae8145475610e, type: 3}
       propertyPath: m_CollisionDetection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5952953569434165077, guid: b63e4b3f7b87477429bae8145475610e, type: 3}
       propertyPath: m_LocalPosition.x
