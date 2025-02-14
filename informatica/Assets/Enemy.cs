@@ -32,7 +32,10 @@ public class Enemy : MonoBehaviour
                 Player.Health -= damage;
             }
         }
+        
     }
+
+
 
 
     public float health = 1;

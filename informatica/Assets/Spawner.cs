@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -7,19 +8,27 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject spawnee;
     [SerializeField] float sizeX = 1f;
     [SerializeField] float sizeY = 1f;
-    [SerializeField] float spawnCooldown = 1f;
+    
+    private float spawnCooldown;
+    private float elapsedTime = 0f;
 
     private float spawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnTime = spawnCooldown;
+        
+        spawnTime = 1f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+        spawnCooldown = Mathf.Max(0.2f, Mathf.Exp(-1*elapsedTime));
+        Debug.Log(spawnCooldown);
+
         if (spawnTime > 0) spawnTime -= Time.deltaTime;
 
         if (spawnTime <= 0)
