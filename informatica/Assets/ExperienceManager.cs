@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using JetBrains.Annotations;
 
 public class ExperienceManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ExperienceManager : MonoBehaviour
     public int currentLevel, totalExperience = 0;
     public int previousLevelsExperience, nextLevelsExperience;
     public GameOverScreen GameOverScreen;
+    public Enemy Enemy;
     [SerializeField] TextMeshProUGUI pointsText;
 
     [Header("Interface")]
@@ -22,15 +24,13 @@ public class ExperienceManager : MonoBehaviour
 
     void Start()
     {
+        currentLevel = 0;
+        totalExperience = 0;
         UpdateLevel();
     }
 
     void Update() 
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            AddExperience(5);
-        }
         pointsText.text = totalExperience.ToString() + " POINTS";
     }
 

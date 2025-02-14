@@ -245,7 +245,7 @@ MonoBehaviour:
   swordAttack: {fileID: 2641790490047889995}
   tr: {fileID: 2371730997443754789}
   arrow: {fileID: 0}
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 1135810993448075819, guid: b63e4b3f7b87477429bae8145475610e, type: 3}
   GameOverScreen: {fileID: 0}
 --- !u!50 &195822540826014035
 Rigidbody2D:

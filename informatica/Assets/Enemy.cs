@@ -11,12 +11,15 @@ public class Enemy : MonoBehaviour
     public float damage = 1;
 
     Animator animator;
+    public ExperienceManager experienceManager;
+    
 
     public float Health{
         set{
             health = value;
             if(health <= 0){
                 Defeated();
+                experienceManager.AddExperience(5);
             }
         }
         get{
@@ -33,10 +36,8 @@ public class Enemy : MonoBehaviour
             }
         }
         
+        
     }
-
-
-
 
     public float health = 1;
 
@@ -52,6 +53,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
