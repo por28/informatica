@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject spawnee;
     [SerializeField] float sizeX = 1f;
     [SerializeField] float sizeY = 1f;
+    [SerializeField] AnimationCurve spawnCurve;
     
     private float spawnCooldown;
     private float elapsedTime = 0f;
@@ -26,8 +27,8 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        spawnCooldown = Mathf.Max(0.2f, Mathf.Exp(-1*elapsedTime));
-        Debug.Log(spawnCooldown);
+        spawnCooldown = (int)spawnCurve.Evaluate(elapsedTime);
+        //Debug.Log(spawnCooldown);
 
         if (spawnTime > 0) spawnTime -= Time.deltaTime;
 
@@ -40,8 +41,8 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        float xPos = (Random.value - 0.5f) * 2 * sizeX + gameObject.transform.position.x;
-        float yPos = (Random.value - 0.5f) * 2 * sizeY + gameObject.transform.position.y;
+        float xPos = (Random.value - 0.5f) * 2 * sizeX;
+        float yPos = (Random.value - 0.5f) * 2 * sizeY;
 
         var spawn = Instantiate(spawnee);
 

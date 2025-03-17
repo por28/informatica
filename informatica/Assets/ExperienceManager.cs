@@ -65,7 +65,7 @@ public class ExperienceManager : MonoBehaviour
         int end = nextLevelsExperience - previousLevelsExperience; 
 
         levelText.text = currentLevel.ToString();
-        experienceText.text = start + " exp / " + end + " exp";
+        experienceText.text = start + " / " + end + " ";
         experienceFill.fillAmount = (float)start / (float)end;
     }
 }

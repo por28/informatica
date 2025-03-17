@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private float distance;
     public float distanceBetween;
     public float damage = 1;
+    Rigidbody2D rb;
+    public Collider2D collider2d;
 
     Animator animator;
     public ExperienceManager experienceManager;
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
 
             if(Player != null){
                 Player.Health -= damage;
+                Defeated();
             }
         }
         
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour
 
     public void Defeated(){
         animator.SetTrigger("Defeated");
+        collider2d.enabled = false;
     }
 
     public void RemoveEnemy(){
@@ -54,16 +58,15 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         Player = GameObject.Find("Player");
+        rb = GetComponent<Rigidbody2D>();
+        collider2d.enabled = true;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        distance = Vector2.Distance(transform.position, Player.transform.position);
+        Vector2 direction = (Player.GetComponent<Rigidbody2D>().position - rb.position).normalized;
 
-        if (distance < distanceBetween)
-        {
-            transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, speed * Time.deltaTime);
-        }
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
     }
 }

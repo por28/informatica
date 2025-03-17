@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         get{
             return health;
         }
+        
     }
 
     public void GameOver()
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (isDashing)
