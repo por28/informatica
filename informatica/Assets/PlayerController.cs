@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject GameOverScreen;
    
     
-    Vector2 movementInput;
+    public Vector2 movementInput;
     Vector2 mousePos;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
