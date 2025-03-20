@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     private float distance;
     public float distanceBetween;
-    public float damage = 1;
+    public int damage = 1;
     Rigidbody2D rb;
     public Collider2D collider2d;
 

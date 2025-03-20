@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
     private float dashingPower = 6f;
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
-    public float health = 2;
+    public int health = 10;
     int totalExperience;
 
+    public HealthBar healthBar;
     public ContactFilter2D movementFilter;
     public SwordAttack swordAttack;
     public TrailRenderer tr;
@@ -33,9 +34,10 @@ public class PlayerController : MonoBehaviour
 
     bool canMove = true;
     
-    public float Health{
+    public int Health{
         set{
             health = value;
+            healthBar.SetHealth(health);
             if(health <= 0){
                 GameOver();
             }
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.SetMaxHealth(health);
         Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
