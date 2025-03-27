@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
                 Defeated();
             }
         }
+        else{
+            Defeated();
+        }
         
         
     }

@@ -14,6 +14,7 @@ public class ExperienceManager : MonoBehaviour
     public int previousLevelsExperience, nextLevelsExperience;
     public GameOverScreen GameOverScreen;
     public Enemy Enemy;
+    public PlayerAbilities playerAbilities;
     [SerializeField] TextMeshProUGUI pointsText;
 
     [Header("Interface")]
@@ -27,6 +28,7 @@ public class ExperienceManager : MonoBehaviour
         currentLevel = 0;
         totalExperience = 0;
         UpdateLevel();
+        playerAbilities = FindObjectOfType<PlayerAbilities>();
     }
 
     void Update() 
@@ -47,6 +49,8 @@ public class ExperienceManager : MonoBehaviour
         {
             currentLevel++;
             UpdateLevel();
+            playerAbilities.LevelUp();
+
 
             // Start level up sequence... Possibly vfx?
         }

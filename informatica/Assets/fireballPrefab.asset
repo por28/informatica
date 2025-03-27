@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a41e5974d2e285449d175a7e5d61b45, type: 3}
-  m_Name: New Main Weapon Up
+  m_Script: {fileID: 11500000, guid: 563738fafa4aa2a489377525d0239519, type: 3}
+  m_Name: fireballPrefab
   m_EditorClassIdentifier: 
   name: 
   cooldownTime: 0
   activeTime: 0
+  fireballPrefab: {fileID: 0}
+  fireballSpeed: 10
