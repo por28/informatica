@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2719308370821733368
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1150857877247583730, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_Name
+      value: SlimeBoss Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525292627490469261, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1586626
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525292627490469261, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1586627
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525292627490469261, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.22083032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525292627490469261, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.065903485
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525292627490469261, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131202217146229519, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088151108737078317, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088151108737078317, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088151108737078317, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088151108737078317, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: collider2d
+      value: 
+      objectReference: {fileID: 3500986990793600629}
+    - target: {fileID: 4088151108737078317, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: distanceBetween
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681334563807205604, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 99ff3d8270f42ca4286d7604faa9a24d, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+--- !u!70 &3500986990793600629 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1525292627490469261, guid: 5826e0b2b3581b446b60ff87dc7e26c3, type: 3}
+  m_PrefabInstance: {fileID: 2719308370821733368}
+  m_PrefabAsset: {fileID: 0}

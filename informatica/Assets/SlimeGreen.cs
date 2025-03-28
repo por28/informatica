@@ -40,7 +40,6 @@ public class SlimeGreen : MonoBehaviour
 
             if(Player != null){
                 Player.Health -= damage;
-                Defeated();
             }
         }   
         else{

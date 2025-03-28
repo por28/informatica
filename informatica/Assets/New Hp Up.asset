@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 563738fafa4aa2a489377525d0239519, type: 3}
-  m_Name: fireballPrefab
+  m_Name: New Hp Up
   m_EditorClassIdentifier: 
-  name: 
+  name: HP UP
   cooldownTime: 0
   activeTime: 0
-  fireballPrefab: {fileID: 0}
-  fireballSpeed: 10
+  health: 10

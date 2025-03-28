@@ -7,11 +7,13 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject slime;
     [SerializeField] GameObject slimegreen;
+    [SerializeField] GameObject slimeboss;
     [SerializeField] float sizeX = 1f;
     [SerializeField] float sizeY = 1f;
     [SerializeField] AnimationCurve spawnCurve;
     
     private float spawnCooldown;
+    private float bossCooldown;
     private float elapsedTime = 0f;
 
     private float spawnTime;
@@ -19,8 +21,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         spawnTime = 1f;
+        bossCooldown = 10;
         
     }
 
@@ -28,10 +30,17 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
+        bossCooldown -= Time.deltaTime;
         spawnCooldown = (int)spawnCurve.Evaluate(elapsedTime);
         //Debug.Log(spawnCooldown);
 
         if (spawnTime > 0) spawnTime -= Time.deltaTime;
+
+        if(bossCooldown <=0){
+            GameObject boss = Instantiate(slimeboss);
+            boss.transform.position = new Vector3(0, 0, 0);  // Set position to (0, 0, 0)
+            bossCooldown = 100000000000f;
+        }
 
         if (spawnTime <= 0)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlimeBoss : MonoBehaviour
 {
-    public GameObject Player;
+    GameObject Player;
     public float speed;
     private float distance;
     public float distanceBetween;
@@ -13,14 +13,15 @@ public class SlimeBoss : MonoBehaviour
     public Collider2D collider2d;
 
     Animator animator;
-    public ExperienceManager experienceManager;
-    public float health = 15;
+    ExperienceManager experienceManager;
+    public float health = 50;
 
     public float Health{
         set{
             health = value;
             if(health <= 0){
                 Defeated();
+                Debug.Log("SlimeBoss health is zero or below, calling Defeated");
                 
             }
         }
@@ -30,27 +31,29 @@ public class SlimeBoss : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "Player"){
+        
+        if (other.CompareTag("Player"))
+        {
             PlayerController Player = other.GetComponent<PlayerController>();
-
-            if(Player != null){
+            if (Player != null)
+            {
                 Player.Health -= damage;
-                health -= 1;
             }
         }
         else{
-            Defeated();
+            Debug.Log("triggered");
+            health -= 1;
         }
-        
-        
     }
 
     
 
     public void Defeated(){
+        Debug.Log("SlimeBoss Defeated!");
         experienceManager.AddExperience(50);
-        animator.SetTrigger("Defeated");
         collider2d.enabled = false;
+        animator.SetTrigger("Defeated");
+        Destroy(gameObject);
     }
 
     public void RemoveEnemy(){

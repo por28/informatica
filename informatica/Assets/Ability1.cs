@@ -1,23 +1,20 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Fireball Ability", menuName = "Abilities/Fireball")]
-public class FireballAbility : Ability
+[CreateAssetMenu(menuName = "Abilities/HpUp")]
+public class HpUp : Ability
 {
-    public GameObject fireballPrefab; // Assign Fireball prefab in Inspector
-    public float fireballSpeed = 10f;
+    public int healthIncrease = 10;
+    GameObject healthbar;
 
-    public override void Activate(GameObject player)
-    {
-        Debug.Log("Fireball Activated!");
+    public override void Activate(GameObject Player)
+    {  
+        PlayerController playerController = Player.GetComponent<PlayerController>();
+        HealthBar healthBar = healthbar.GetComponentInChildren<HealthBar>();
 
-        // Spawn a fireball in front of the player
-        GameObject fireball = Instantiate(fireballPrefab, player.transform.position + player.transform.forward, Quaternion.identity);
-        
-        // Give it velocity
-        Rigidbody rb = fireball.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (playerController != null)
         {
-            rb.velocity = player.transform.forward * fireballSpeed;
+            playerController.Health = healthIncrease;
+            healthBar.SetMaxHealth(playerController.health);
         }
     }
 }

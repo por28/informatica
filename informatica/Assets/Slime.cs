@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour
 
             if(Player != null){
                 Player.Health -= damage;
-                Defeated();
             }
         }
         else{
