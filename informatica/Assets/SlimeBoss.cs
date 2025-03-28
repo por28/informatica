@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class SlimeBoss : MonoBehaviour
 {
     public GameObject Player;
     public float speed;
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     Animator animator;
     public ExperienceManager experienceManager;
-    
+    public float health = 15;
 
     public float Health{
         set{
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
             if(Player != null){
                 Player.Health -= damage;
-                Defeated();
+                health -= 1;
             }
         }
         else{
@@ -45,10 +45,10 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public float health = 1;
+    
 
     public void Defeated(){
-        experienceManager.AddExperience(5);
+        experienceManager.AddExperience(50);
         animator.SetTrigger("Defeated");
         collider2d.enabled = false;
     }

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] GameObject spawnee;
+    [SerializeField] GameObject slime;
+    [SerializeField] GameObject slimegreen;
     [SerializeField] float sizeX = 1f;
     [SerializeField] float sizeY = 1f;
     [SerializeField] AnimationCurve spawnCurve;
@@ -44,7 +45,9 @@ public class Spawner : MonoBehaviour
         float xPos = (Random.value - 0.5f) * 2 * sizeX;
         float yPos = (Random.value - 0.5f) * 2 * sizeY;
 
-        var spawn = Instantiate(spawnee);
+        GameObject selectedSlime = Random.Range(0, 2) == 0 ? slime : slimegreen;
+        var spawn = Instantiate(selectedSlime);
+        
 
         spawn.transform.position = new Vector3(xPos, yPos, 0);
     }

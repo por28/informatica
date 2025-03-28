@@ -166,7 +166,8 @@ MonoBehaviour:
   speed: 0.5
   distanceBetween: 10
   damage: 1
-  experienceManager: {fileID: 3479249330040389962, guid: 50de2fda070cf3340b50af0b8df01d68, type: 3}
+  collider2d: {fileID: 0}
+  experienceManager: {fileID: 0}
   health: 3
 --- !u!95 &7555862033187699209
 Animator:

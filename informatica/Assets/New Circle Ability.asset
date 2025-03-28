@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6314ab307abd77b4ca94bc2ac77f2eb1, type: 3}
   m_Name: New Circle Ability
   m_EditorClassIdentifier: 
-  name: 
-  cooldownTime: 0
-  activeTime: 0
-  circlePrefab: {fileID: 3137323992570036276, guid: dfb8c9a33431fa74bae81cd769c01cdc, type: 3}
-  radius: 5
-  speed: 50
+  name: Circle
+  cooldownTime: 1
+  activeTime: 10000
+  circleCollider: {fileID: 3137323992570036276, guid: dfb8c9a33431fa74bae81cd769c01cdc, type: 3}
+  radius: 0.5
+  speed: 2
   hideDuration: 5
-  circleMovement: {fileID: 0}

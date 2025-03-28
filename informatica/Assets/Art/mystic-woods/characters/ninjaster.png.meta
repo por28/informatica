@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87e19288da5825e4c987b5df88d60d60
+guid: c52f7046e5f787b4c825a90bf1a7ac58
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,91 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: slime-boss_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 265
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e32884f5161719041a7d1e0ca16dc00b
-      internalID: -2094230424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slime-boss_1
-      rect:
-        serializedVersion: 2
-        x: 265
-        y: 0
-        width: 265
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9389e840baf8f204c9d5c5727f492b29
-      internalID: 1083816213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slime-boss_2
-      rect:
-        serializedVersion: 2
-        x: 530
-        y: 0
-        width: 265
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdcffdb3144e4c346b314792749f53c7
-      internalID: -1340565397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slime-boss_3
-      rect:
-        serializedVersion: 2
-        x: 795
-        y: 0
-        width: 265
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb7ae0a8d53229442bce8df6de322bbc
-      internalID: -1631383803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -190,11 +106,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      slime-boss_0: -2094230424
-      slime-boss_1: 1083816213
-      slime-boss_2: -1340565397
-      slime-boss_3: -1631383803
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

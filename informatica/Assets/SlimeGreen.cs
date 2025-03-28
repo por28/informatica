@@ -5,12 +5,16 @@ using UnityEngine;
 public class SlimeGreen : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject Projectile;
     public float speed;
     private float distance;
     public float distanceBetween;
     public int damage = 1;
     Rigidbody2D rb;
     public Collider2D collider2d;
+    public float shootCooldown = 2;
+    private float nextShotTime = 1;
+    private float timeSinceLastShot = 0;
 
     Animator animator;
     public ExperienceManager experienceManager;
@@ -20,8 +24,9 @@ public class SlimeGreen : MonoBehaviour
         set{
             health = value;
             if(health <= 0){
+                
                 Defeated();
-                experienceManager.AddExperience(5);
+                
             }
         }
         get{
@@ -37,7 +42,7 @@ public class SlimeGreen : MonoBehaviour
                 Player.Health -= damage;
                 Defeated();
             }
-        }
+        }   
         else{
             Defeated();
         }
@@ -48,8 +53,9 @@ public class SlimeGreen : MonoBehaviour
     public float health = 1;
 
     public void Defeated(){
+        experienceManager.AddExperience(5);
         animator.SetTrigger("Defeated");
-        collider2d.enabled = false;
+        collider2d.enabled = false; 
     }
 
     public void RemoveEnemy(){
@@ -59,6 +65,7 @@ public class SlimeGreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(Projectile, transform.position, Quaternion.identity);
         animator = GetComponent<Animator>();
         Player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody2D>();
@@ -71,5 +78,19 @@ public class SlimeGreen : MonoBehaviour
         Vector2 direction = (Player.GetComponent<Rigidbody2D>().position - rb.position).normalized;
 
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+
+        timeSinceLastShot += Time.deltaTime;
+
+        if (timeSinceLastShot >= shootCooldown)
+        {
+            Shoot();
+            timeSinceLastShot = 0;
+        }
+    }
+
+    void Shoot()
+    {
+        Debug.Log("trying to shoot");
+        Instantiate(Projectile, transform.position, Quaternion.identity);
     }
 }

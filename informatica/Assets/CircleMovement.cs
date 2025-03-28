@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class CircleMovement : MonoBehaviour
 {
-    public Transform player; 
-    public float radius = 5f; 
-    public float speed = 50f; 
+    public Transform Player; 
+    public float radius = 0.5f; 
+    public float speed = 2f; 
     public float hideDuration = 5f; 
     private bool isHidden = false; 
 
@@ -16,6 +16,7 @@ public class CircleMovement : MonoBehaviour
     {
         circleRenderer = GetComponent<SpriteRenderer>();
         circleCollider = GetComponent<Collider2D>();
+        Player = GameObject.Find("Player")?.transform;
 
         StartCoroutine(HideAndShowCoroutine());
     }
@@ -24,8 +25,8 @@ public class CircleMovement : MonoBehaviour
     {
         if (!isHidden)
         {
-            float x = player.position.x + radius * Mathf.Cos(Time.time * speed);
-            float y = player.position.y + radius * Mathf.Sin(Time.time * speed);
+            float x = Player.position.x + radius * Mathf.Cos(Time.time * speed);
+            float y = Player.position.y + radius * Mathf.Sin(Time.time * speed);
 
             transform.position = new Vector3(x, y, 0); 
         }

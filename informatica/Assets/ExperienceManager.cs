@@ -13,7 +13,7 @@ public class ExperienceManager : MonoBehaviour
     public int currentLevel, totalExperience = 0;
     public int previousLevelsExperience, nextLevelsExperience;
     public GameOverScreen GameOverScreen;
-    public Enemy Enemy;
+    public List<GameObject> enemies;
     public PlayerAbilities playerAbilities;
     [SerializeField] TextMeshProUGUI pointsText;
 
@@ -25,6 +25,9 @@ public class ExperienceManager : MonoBehaviour
 
     void Start()
     {
+        enemies.Clear();
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies.AddRange(enemyObjects);
         currentLevel = 0;
         totalExperience = 0;
         UpdateLevel();
